@@ -22,16 +22,18 @@ class CreateToDoItem extends Component {
   }
 
   onChangeTodoName = (event) => {
+    event.preventDefault();
     const minCharForTodoNameCreation = 3
-    if(event.target.value.length >= minCharForTodoNameCreation) {
+    let eValue = event.target.value
+    if(eValue.length >= minCharForTodoNameCreation) {
       this.setState({
-        initialNameOfTodoItem: event.target.value,
+        initialNameOfTodoItem: eValue,
         priority: 1,
         minCharForTodoNameSatisfied: true
       })
     } else {
       this.setState({
-        initialNameOfTodoItem: event.target.value,
+        initialNameOfTodoItem: eValue,
         priority: 1,
         minCharForTodoNameSatisfied: false
       })
